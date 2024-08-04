@@ -1,10 +1,8 @@
 import requests
 import json
 
-
 def youtube_search(query, api_key):
     url = "https://www.googleapis.com/youtube/v3/search"
-
     params = {"part": "snippet", "maxResults": 25, "q": query, "key": api_key}
 
     try:
@@ -15,15 +13,17 @@ def youtube_search(query, api_key):
     except requests.exceptions.RequestException as e:
         return f"An error occurred: {e}"
 
-
 if __name__ == "__main__":
     API_KEY = "AIzaSyB32pztkNyn6Pr4shYOr_8_AhktdxMzTDE"  # Replace with your YouTube Data API v3 key
-    query = "surfing"
+    query = "avatar movie"
 
     results = youtube_search(query, API_KEY)
 
-    # Print the response in a pretty JSON format
+    # Check if the results are a dictionary (indicating a successful API response)
     if isinstance(results, dict):
-        print(json.dumps(results, indent=4))
+        # Save the response in a JSON file
+        with open("youtube_search_results.json", "w") as json_file:
+            json.dump(results, json_file, indent=4)
+        print("Response saved to youtube_search_results.json")
     else:
         print(results)
