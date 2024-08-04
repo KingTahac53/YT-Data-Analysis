@@ -42,9 +42,18 @@ if __name__ == "__main__":
 
     top_10_video_ids_titles = read_and_sort_csv(file_path)
 
+    all_comments_data = {}
+
     for index, row in top_10_video_ids_titles.iterrows():
         video_id = row['Video ID']
         print(f"\nComments for video ID: {video_id} ({row['Title']}):")
         comments = get_video_comments(video_id, API_KEY)
         # pprint(json.dumps(comments, indent=4))
-        pprint(comments)
+        # pprint(comments)
+
+        all_comments_data[video_id] = comments
+
+    with open("top_10_video_comments.json", "w") as json_file:
+        json.dump(all_comments_data, json_file, indent=4)
+
+    print("Comments data exported to top_10_video_comments.json successfully")
