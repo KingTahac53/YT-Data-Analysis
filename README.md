@@ -4,21 +4,21 @@ This repository contains various scripts and tools for analyzing YouTube data us
 
 ## Table of Contents
 
-### Installation
+#### [Installation](###installation)
 
-### Usage
+#### [Usage](###usage)
 
-### Video Search
+#### [Video Search](###video-search)
 
-### Video Statistics
+#### [Video Statistics](###video-statistics)
 
-### Comment Retrieval
+#### [Comment Retrieval](###comment-retrieval)
 
-### Likes vs Views Ratio
+#### [Likes vs Views Ratio](###likes-vs-views-ratio)
 
-### Scripts Overview
+#### [Scripts Overview](###scripts-overview)
 
-### License
+#### [License](##license)
 
 ### Installation
 
@@ -44,7 +44,7 @@ pip install -r requirements.txt
 
 ## Usage
 
-### Video Search
+### [Video Search](### video-search)
 
 The script to search for videos based on a query and export the results is located in the video_search folder.
 
