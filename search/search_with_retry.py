@@ -32,7 +32,7 @@ def youtube_search(query, api_key):
 
 
 if __name__ == "__main__":
-    API_KEY = "AIzaSyB32pztkNyn6Pr4shYOr_8_AhktdxMzTDE"  # Replace with your YouTube Data API v3 key
+    API_KEY = "xxxxxxx"  # Replace with your YouTube Data API v3 key
     query = "surfing"
 
     results = youtube_search(query, API_KEY)

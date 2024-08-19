@@ -6,11 +6,12 @@ import json
 def read_and_sort_csv(file_path):
     try:
         df = pd.read_csv(file_path)
-        df['No of Comments'] = pd.to_numeric(
-            df['No of Comments'], errors='coerce').fillna(0).astype(int)
-        sorted_df = df.sort_values(by='No of Comments', ascending=False)
+        df["No of Comments"] = (
+            pd.to_numeric(df["No of Comments"], errors="coerce").fillna(0).astype(int)
+        )
+        sorted_df = df.sort_values(by="No of Comments", ascending=False)
         top_10_videos = sorted_df.head(10)
-        top_10_video_ids_titles = top_10_videos[['Video ID', 'Title']]
+        top_10_video_ids_titles = top_10_videos[["Video ID", "Title"]]
 
         return top_10_video_ids_titles
     except Exception as e:
@@ -19,11 +20,7 @@ def read_and_sort_csv(file_path):
 
 def get_video_statistics(video_ids, api_key):
     url = "https://www.googleapis.com/youtube/v3/videos"
-    params = {
-        "part": "statistics",
-        "id": ",".join(video_ids),
-        "key": api_key
-    }
+    params = {"part": "statistics", "id": ",".join(video_ids), "key": api_key}
 
     try:
         response = requests.get(url, params=params, timeout=10)
@@ -48,7 +45,7 @@ def calculate_likes_vs_views_ratio(video_statistics):
 
 if __name__ == "__main__":
     # Replace with your actual API key
-    API_KEY = "AIzaSyB32pztkNyn6Pr4shYOr_8_AhktdxMzTDE"
+    API_KEY = "xxxxxxx"
     # Path to the CSV file generated earlier
     file_path = "avatar_movie_statistics.csv"
 
@@ -66,6 +63,9 @@ if __name__ == "__main__":
 
     # Print the ratios
     for video_id, ratio in likes_vs_views_ratios.items():
-        title = top_10_video_ids_titles.loc[top_10_video_ids_titles["Video ID"]
-                                            == video_id, "Title"].values[0]
-        print(f"Video ID: {video_id}, Title: {title}, Likes vs Views Ratio: {ratio:.4f}")
+        title = top_10_video_ids_titles.loc[
+            top_10_video_ids_titles["Video ID"] == video_id, "Title"
+        ].values[0]
+        print(
+            f"Video ID: {video_id}, Title: {title}, Likes vs Views Ratio: {ratio:.4f}"
+        )

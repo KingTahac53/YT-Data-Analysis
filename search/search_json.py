@@ -30,7 +30,7 @@ def get_video_details(video_id, api_key):
 
 if __name__ == "__main__":
     # Replace with your YouTube Data API v3 key
-    API_KEY = "AIzaSyB32pztkNyn6Pr4shYOr_8_AhktdxMzTDE"
+    API_KEY = "xxxxxxx"
     query = "avatar movie"
 
     # Step 1: Search for videos related to the query
@@ -45,7 +45,11 @@ if __name__ == "__main__":
         video_details = get_video_details(video_id, API_KEY)
 
         # Extract the required information
-        if isinstance(video_details, dict) and "items" in video_details and video_details["items"]:
+        if (
+            isinstance(video_details, dict)
+            and "items" in video_details
+            and video_details["items"]
+        ):
             video_info = video_details["items"][0]
             output = {
                 "ID": video_info["id"],
@@ -53,7 +57,7 @@ if __name__ == "__main__":
                 "Channel ID": video_info["snippet"]["channelId"],
                 "Video Description": video_info["snippet"]["description"],
                 "Channel Title": video_info["snippet"]["channelTitle"],
-                "Video Title": video_info["snippet"]["title"]
+                "Video Title": video_info["snippet"]["title"],
             }
             print(json.dumps(output, indent=4))
 
