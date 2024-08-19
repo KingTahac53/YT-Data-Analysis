@@ -1,40 +1,56 @@
-YouTube Data API Analysis
+# YouTube Data API Analysis
+
 This repository contains various scripts and tools for analyzing YouTube data using the YouTube Data API v3. The project is divided into several folders, each containing scripts for different tasks such as searching videos, fetching video statistics, retrieving comments, and exporting data.
 
-Table of Contents
-Installation
-Usage
-Video Search
-Video Statistics
-Comment Retrieval
-Likes vs Views Ratio
-Scripts Overview
-License
-Installation
-Clone the repository:
+## Table of Contents
 
-bash
-Copy code
+### Installation
+
+### Usage
+
+### Video Search
+
+### Video Statistics
+
+### Comment Retrieval
+
+### Likes vs Views Ratio
+
+### Scripts Overview
+
+### License
+
+### Installation
+
+### Clone the repository:
+
+```bash
 git clone https://github.com/yourusername/internet-monitor.git
 cd internet-monitor
-Create and activate a virtual environment (optional but recommended):
+```
 
-bash
-Copy code
+### Create and activate a virtual environment (optional but recommended):
+
+```bash
 python -m venv venv
 source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-Install the required packages:
+```
 
-bash
-Copy code
+### Install the required packages:
+
+```bash
 pip install -r requirements.txt
-Usage
-Video Search
+```
+
+## Usage
+
+### Video Search
+
 The script to search for videos based on a query and export the results is located in the video_search folder.
 
-Example usage:
-python
-Copy code
+### Example usage:
+
+```python
 import requests
 import json
 
@@ -52,12 +68,15 @@ if __name__ == "__main__":
     with open("search_results.json", "w") as json_file:
         json.dump(search_results, json_file, indent=4)
     print("Search results saved to search_results.json")
-Video Statistics
+```
+
+## Video Statistics
+
 The script to fetch video statistics and export them to a CSV file is located in the video_statistics folder.
 
-Example usage:
-python
-Copy code
+### Example usage:
+
+```python
 import requests
 import pandas as pd
 
@@ -80,12 +99,15 @@ if __name__ == "__main__":
     df = pd.DataFrame(data)
     df.to_csv("video_statistics.csv", index=False)
     print("Video statistics saved to video_statistics.csv")
-Comment Retrieval
+```
+
+## Comment Retrieval
+
 The script to retrieve comments for the top 10 videos with the highest comments is located in the comments_retrieval folder.
 
-Example usage:
-python
-Copy code
+### Example usage:
+
+```python
 import requests
 import pandas as pd
 import json
@@ -112,12 +134,15 @@ if __name__ == "__main__":
     with open("top_10_video_comments.json", "w") as json_file:
         json.dump(comments_data, json_file, indent=4)
     print("Comments data saved to top_10_video_comments.json")
-Likes vs Views Ratio
+```
+
+## Likes vs Views Ratio
+
 The script to calculate the likes vs views ratio for the top 10 videos with the highest comments is located in the likes_vs_views_ratio folder.
 
-Example usage:
-python
-Copy code
+### Example usage:
+
+```python
 import requests
 import pandas as pd
 
@@ -149,20 +174,28 @@ if __name__ == "__main__":
     for video_id, ratio in ratios.items():
         title = df_sorted.loc[df_sorted["Video ID"] == video_id, "Title"].values[0]
         print(f"Video ID: {video_id}, Title: {title}, Likes vs Views Ratio: {ratio:.4f}")
-Scripts Overview
-Folders and Scripts
-video_search/:
+```
+
+# Scripts Overview
+
+## Folders and Scripts
+
+### video_search/:
 
 youtube_search.py: Script to search videos based on a query and export the results to a JSON file.
-video_statistics/:
+
+### video_statistics/:
 
 get_video_statistics.py: Script to fetch video statistics (views, likes, comments) and export them to a CSV file.
-comments_retrieval/:
+
+### comments_retrieval/:
 
 get_video_comments.py: Script to retrieve comments for the top 10 videos with the highest comments and export them to a JSON file.
-likes_vs_views_ratio/:
+
+### likes_vs_views_ratio/:
 
 calculate_likes_vs_views_ratio.py: Script to calculate the likes vs views ratio for the top 10 videos with the highest comments.
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
