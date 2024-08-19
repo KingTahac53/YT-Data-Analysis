@@ -4,21 +4,21 @@ This repository contains various scripts and tools for analyzing YouTube data us
 
 ## Table of Contents
 
-#### [Installation](###installation)
+#### [Installation](###installation-1)
 
-#### [Usage](###usage)
+#### [Usage](###usage-1)
 
-#### [Video Search](###video-search)
+#### [Video Search](###video-search-1)
 
-#### [Video Statistics](###video-statistics)
+#### [Video Statistics](###video-statistics-1)
 
-#### [Comment Retrieval](###comment-retrieval)
+#### [Comment Retrieval](###comment-retrieval-1)
 
-#### [Likes vs Views Ratio](###likes-vs-views-ratio)
+#### [Likes vs Views Ratio](###likes-vs-views-ratio-1)
 
-#### [Scripts Overview](###scripts-overview)
+#### [Scripts Overview](###scripts-overview-1)
 
-#### [License](##license)
+#### [License](##license-1)
 
 ### Installation
 
